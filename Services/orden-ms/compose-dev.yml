@@ -1,0 +1,19 @@
+name: pagatu-orden-dev
+
+services:
+  mysql-catalogo-dev:
+    image: mysql:8.4
+    container_name: orden-mysql-catalogo-dev
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: pagatu
+      MYSQL_DATABASE: pagatu_orden_db
+      MYSQL_USER: pagatu
+      MYSQL_PASSWORD: pagatu
+    ports:
+      - "13306:3306"
+    volumes:
+      - pagatu_orden_dev_data:/var/lib/mysql
+
+volumes:
+  pagatu_orden_dev_data:
